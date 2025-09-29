@@ -126,30 +126,27 @@ public class NumberTriangle {
         // will need to return the top of the NumberTriangle,
         // so might want a variable for that.
         NumberTriangle top = null;
-        NumberTriangle[] prevRow = null;   // previous row of nodes
+        NumberTriangle[] prevRow = null;
         String line;
 
         while ((line = br.readLine()) != null) {
-            String[] nums = line.trim().split("\\s+");
+            String[] nums = line.trim().split(" ");
             NumberTriangle[] currRow = new NumberTriangle[nums.length];
 
-            // create nodes for this row
             for (int i = 0; i < nums.length; i++) {
                 currRow[i] = new NumberTriangle(Integer.parseInt(nums[i]));
             }
 
-            // link with previous row if exists
             if (prevRow != null) {
                 for (int i = 0; i < prevRow.length; i++) {
                     prevRow[i].setLeft(currRow[i]);
                     prevRow[i].setRight(currRow[i + 1]);
                 }
             } else {
-                // first row is the root
                 top = currRow[0];
             }
 
-            prevRow = currRow;  // move down
+            prevRow = currRow;
         }
         br.close();
         return top;
