@@ -97,7 +97,7 @@ public class NumberTriangle {
             for(String s : realpath){
                 if(s.equals("l")){
                     current = current.left;
-                }else if(s.equals("r"))
+                }else
                 {
                     current = current.right;
                 }
