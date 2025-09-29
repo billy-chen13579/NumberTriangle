@@ -130,7 +130,7 @@ public class NumberTriangle {
         String line;
 
         while ((line = br.readLine()) != null) {
-            String[] nums = line.trim().split(" ");
+            String[] nums = line.trim().split("\\s+");
             NumberTriangle[] currRow = new NumberTriangle[nums.length];
 
             for (int i = 0; i < nums.length; i++) {
